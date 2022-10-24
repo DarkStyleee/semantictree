@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "graphology": "^0.25.0",
+    "graphology-layout-force": "^0.2.4",
+    "sigma": "^2.3.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
