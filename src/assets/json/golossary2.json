@@ -4,24 +4,21 @@
       "key": "0",
       "attributes": {
         "size": 15,
-        "label": "Документооборот",
-        "color": "#D8482D"
+        "label": "Документооборот"
       }
     },
     {
       "key": "1",
       "attributes": {
         "size": 15,
-        "label": "Объем документооборота",
-        "color": "#C8842D"
+        "label": "Объем документооборота"
       }
     },
     {
       "key": "2",
       "attributes": {
         "size": 15,
-        "label": "Цифровой ключ",
-        "color": "#C8842D"
+        "label": "Цифровой ключ"
       }
     }
   ],
@@ -31,7 +28,8 @@
       "source": "0",
       "target": "1",
       "attributes": {
-        "size": 1
+        "size": 1,
+        "label": "включает"
       }
     }
   ]

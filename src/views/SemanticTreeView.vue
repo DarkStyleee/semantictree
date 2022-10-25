@@ -12,7 +12,6 @@ const semantic = ref();
 
 onMounted(() => {
   createGraph(semantic.value, graphData);
-  console.log(graphData);
 });
 </script>
 

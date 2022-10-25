@@ -1,5 +1,5 @@
 <template>
-  <h1>Glossary</h1>
+  <h1>Глоссарий</h1>
 </template>
 
 <script>

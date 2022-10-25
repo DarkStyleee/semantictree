@@ -7,3 +7,38 @@
   margin: 0; 
   padding: 0;
 }
+
+
+.link-box {
+  display: flex;
+  padding: 10px;
+
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    min-width: 150px;
+    height: 40px;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    color: #11395b;
+    text-transform: uppercase;
+    border: 1px solid #ebe098;
+    background-color: #fff8c9;
+    box-shadow: 0 0 6px 2px rgb(208 208 208);
+    transition: all 0.3s;
+
+    &:hover {
+      border: 1px solid #ebdd81;
+      background-color: #fff08c;
+      transform: translateY(-5px);
+    }
+  }
+
+  a {
+    margin-right: 10px;
+  }
+}

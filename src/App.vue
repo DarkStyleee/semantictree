@@ -1,7 +1,7 @@
 <template>
-  <nav>
-    <router-link to="/">Glossary</router-link> |
-    <router-link to="/semantic">Semantic Tree</router-link>
+  <nav class="link-box">
+    <router-link class="link" to="/">Глоссарий</router-link>
+    <router-link class="link" to="/semantic">Семантический граф</router-link>
   </nav>
   <router-view />
 </template>
