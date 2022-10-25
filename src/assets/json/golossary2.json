@@ -1,0 +1,38 @@
+{
+  "nodes": [
+    {
+      "key": "0",
+      "attributes": {
+        "size": 15,
+        "label": "Документооборот",
+        "color": "#D8482D"
+      }
+    },
+    {
+      "key": "1",
+      "attributes": {
+        "size": 15,
+        "label": "Объем документооборота",
+        "color": "#C8842D"
+      }
+    },
+    {
+      "key": "2",
+      "attributes": {
+        "size": 15,
+        "label": "Цифровой ключ",
+        "color": "#C8842D"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "key": "1",
+      "source": "0",
+      "target": "1",
+      "attributes": {
+        "size": 1
+      }
+    }
+  ]
+}
