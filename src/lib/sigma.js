@@ -3,95 +3,47 @@ import Sigma from "sigma";
 
 import ForceSupervisor from "graphology-layout-force/worker";
 
-// const container = document.getElementById("sigma-container");
-
-export function createGraph(container) {
+export function createGraph(container, data) {
   const graph = new Graph();
 
-  const RED = "#FA4F40";
-  const BLUE = "#727EE0";
-  const GREEN = "#5DB346";
-
-  graph.addNode("John", {
-    size: 15,
-    label: "John",
-    color: RED,
-  });
-  graph.addNode("Mary", {
-    size: 15,
-    label: "Mary",
-    // type: "image",
-    // image: "./user.svg",
-    color: RED,
-  });
-  graph.addNode("Suzan", {
-    size: 15,
-    label: "Suzan",
-    // type: "image",
-    // image: "./user.svg",
-    color: RED,
-  });
-  graph.addNode("Nantes", {
-    size: 15,
-    label: "Nantes",
-    // type: "image",
-    // image: "./city.svg",
-    color: BLUE,
-  });
-  graph.addNode("New-York", {
-    size: 15,
-    label: "New-York",
-    // type: "image",
-    // image: "./city.svg",
-    color: BLUE,
-  });
-  graph.addNode("Sushis", {
-    size: 7,
-    label: "Sushis",
-    // type: "border",
-    color: GREEN,
-  });
-  graph.addNode("Falafels", {
-    size: 7,
-    label: "Falafels",
-    // type: "border",
-    color: GREEN,
-  });
-  graph.addNode("Kouign Amann", {
-    size: 7,
-    label: "Kouign Amann",
-    // type: "border",
-    color: GREEN,
+  graph.addNode(data.name, {
+    size: data.settings.size,
+    label: data.settings.label,
+    color: rndColor(),
   });
 
-  graph.addEdge("John", "Mary", { type: "line", label: "works with", size: 5 });
-  graph.addEdge("Mary", "Suzan", {
-    type: "line",
-    label: "works with",
-    size: 5,
-  });
-  graph.addEdge("Mary", "Nantes", {
-    type: "arrow",
-    label: "lives in",
-    size: 5,
-  });
-  graph.addEdge("John", "New-York", {
-    type: "arrow",
-    label: "lives in",
-    size: 5,
-  });
-  graph.addEdge("Suzan", "New-York", {
-    type: "arrow",
-    label: "lives in",
-    size: 5,
-  });
-  graph.addEdge("John", "Falafels", { type: "arrow", label: "eats", size: 5 });
-  graph.addEdge("Mary", "Sushis", { type: "arrow", label: "eats", size: 5 });
-  graph.addEdge("Suzan", "Kouign Amann", {
-    type: "arrow",
-    label: "eats",
-    size: 5,
-  });
+  function rndColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const color = "#" + r.toString(16) + g.toString(16) + b.toString(16);
+    return color;
+  }
+
+  function setNodes(data) {
+    if (data.length > 0) {
+      for (let i = 0; i < data.length; i++) {
+        const el = data[i];
+        graph.addNode(el.name, {
+          size: el.settings.size,
+          label: el.settings.label,
+          color: rndColor(),
+        });
+        graph.addEdge(el.name, el.parent, {
+          type: el.settings.type,
+          label: el.settings.labelLink,
+          size: el.settings.size,
+          color: "#8790a3",
+        });
+
+        if (el.children) {
+          setNodes(el.children);
+        }
+      }
+    }
+  }
+
+  setNodes(data.children);
 
   graph.nodes().forEach((node, i) => {
     const angle = (i * 2 * Math.PI) / graph.order;
@@ -99,17 +51,10 @@ export function createGraph(container) {
     graph.setNodeAttribute(node, "y", 100 * Math.sin(angle));
   });
 
-  // const renderer = new Sigma(graph, container);
-
-  // const settings = {
-  //   minEdgeSize: 1,
-  //   maxEdgeSize: 4,
-  //   edgeLabelSize: "proportional",
-  // };
-
   // eslint-disable-next-line no-unused-vars
   const renderer = new Sigma(graph, container, {
     renderEdgeLabels: true,
+    allowInvalidContainer: true,
   });
 
   const layout = new ForceSupervisor(graph);
