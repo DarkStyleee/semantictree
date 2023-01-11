@@ -5,8 +5,7 @@
 <script setup>
 import { createGraph } from "@/lib/sigma2";
 import { ref, onMounted } from "vue";
-// import graphData from "@/assets/json/golossary.json";
-import graphData from "@/assets/json/golossary2.json";
+import graphData from "@/assets/json/glossary.json";
 
 const semantic = ref();
 

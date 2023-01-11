@@ -12,6 +12,7 @@
 .link-box {
   display: flex;
   padding: 10px;
+  flex-wrap: wrap;
 
   .link {
     display: flex;
@@ -21,24 +22,57 @@
     min-width: 150px;
     height: 40px;
     padding: 5px 20px;
-    font-size: 16px;
+    margin: 5px 0;
     font-weight: bold;
     border-radius: 4px;
     color: #11395b;
     text-transform: uppercase;
     border: 1px solid #ebe098;
     background-color: #fff8c9;
-    box-shadow: 0 0 6px 2px rgb(208 208 208);
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
 
     &:hover {
       border: 1px solid #ebdd81;
-      background-color: #fff08c;
-      transform: translateY(-5px);
+      background-color: #fff6be;
+      transform: translateY(-2px);
     }
   }
 
   a {
-    margin-right: 10px;
+    margin-right: 10px !important;
+  }
+}
+
+.glossary {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 10px;
+  gap: 10px;
+}
+
+.card {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d4d4d4;
+  background-color: #fffbdf;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+
+  &__header {
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  &__description {
+    font-weight: 500;
+    color: rgb(30, 162, 156);
+    font-size: 0.8rem;
+    margin-bottom: 5px;
   }
 }
