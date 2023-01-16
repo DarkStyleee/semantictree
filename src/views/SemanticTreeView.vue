@@ -4,13 +4,18 @@
 
 <script setup>
 import { createGraph } from "@/lib/sigma2";
-import { ref, onMounted } from "vue";
-import graphData from "@/assets/json/glossary.json";
+import { ref, onMounted, computed } from "vue";
+import { useStore } from "vuex";
 
+const store = useStore();
+
+const graphData = computed(() => store.getters.getGlossary);
+
+console.log(graphData);
 const semantic = ref();
 
 onMounted(() => {
-  createGraph(semantic.value, graphData);
+  createGraph(semantic.value, graphData.value);
 });
 </script>
 

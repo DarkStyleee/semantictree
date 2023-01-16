@@ -18,10 +18,12 @@
 </template>
 
 <script setup>
-import graphData from "@/assets/json/glossary.json";
 import { computed } from "vue";
+import { useStore } from "vuex";
 
-const glossary = computed(() => graphData);
+const store = useStore();
+
+const glossary = computed(() => store.getters.getGlossary);
 </script>
 
 <style></style>
