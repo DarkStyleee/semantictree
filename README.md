@@ -2,7 +2,7 @@
 
 ## Project on github pages
 
-[Glossary And Semantic Graph](darkstyleee.github.io/semantictree)
+[Glossary And Semantic Graph](https://darkstyleee.github.io/semantictree)
 
 ## Project setup
 
