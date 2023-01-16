@@ -11,7 +11,6 @@ const store = useStore();
 
 const graphData = computed(() => store.getters.getGlossary);
 
-console.log(graphData);
 const semantic = ref();
 
 onMounted(() => {
